@@ -122,4 +122,23 @@
     git commit -m "add: tests in the testStructure.js"
     git push
 
-20.
+20. Create new file
+    ../e2e/locators.cy.js
+
+21. add code to locators.cy.js:
+    /// <reference types="cypress" />
+
+    describe('Find or Get Elements by using Different Locators', () => {
+        beforeEach(() => {
+            //runs before each test
+            cy.clearCookies();
+            cy.visit('/login');
+        });
+
+        it('Check different locators strategy', () => {
+            
+        });
+
+    });    
+
+22. 

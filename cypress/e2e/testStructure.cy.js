@@ -19,7 +19,7 @@ describe('Context: test structure', () => {
         cy.visit('/registration_form');
     });
 
-    xit('Test 2', () => {
+    it('Test 2', () => {
         expect(false).to.equal(false);
     })
     
