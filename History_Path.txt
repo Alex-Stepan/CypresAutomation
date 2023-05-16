@@ -1,0 +1,125 @@
+1. Needed to be installed:
+    Node.js, NPM, VSC, Git, Git Bash for Windows, Web Browser,
+
+2. Setting up directory, run next commands in Terminal / Git Bash / Prompt / VSC Terminal:
+    cd Desktop
+    mkdir CypressAutomation
+    cd CypressAutomation
+
+3. Create a project, run next comand in the same terminal:
+    npm init //then answer all yes
+
+4. Install  & initiate Cypress
+    npm install cypress
+    npx cypress open
+    //new window will be opened for forward actions
+    click on E2E Testing module (E2E - End to End)
+    select browser you want to use for Testing
+    click Start E2E Testing button
+    //new browser window will be opened
+    click on [1-getting-started/todo] to run the verification test
+    close it
+
+5. Git - For Version Control processed
+    Install Git
+    
+6. Generate SSH Key, in Git Bash run command:
+    ssh-keygen -t rsa
+   
+7. Add SSH Key to Github account:
+    Open file ../.ssh/id_rsa.pub with your favorite text editor, and copy contents to your Git repository’s keys field
+
+8. Create .gitignore to the project
+    add inside .gitignore: 
+    /node_modules/
+    /.idea/
+
+9. Create new file ./cypress/e2e/testStructure.js:
+    
+10. Add code to the ./cypress/e2e/testStructure.js:
+    /*    
+        /// <reference types="cypress" />
+
+    describe('Context: test structure', () => {
+        before(() => {
+            //runs before all tests
+        });
+        beforeEach(() => {
+            cy.clearCookies();
+            //runs before each test
+        });
+        after(() => {
+            //runs after test
+        });
+        afterEach(() => {
+            //runs after each method
+        });
+
+        it('Opening a web application', () => {
+            cy.visit('https://practice.cydeo.com/');
+        });
+    });
+    */
+
+11. Create a Git repository on Github with the name: ExampleName
+
+12. Enable Version Control:
+    git init
+    git add .
+    git commit -m "add: first commit"
+    git branch -M main
+    git remote add origin <ExampleName URL>
+    git push -u origin main
+
+13. If want to clone the repository to the local, run command:
+    git clone <ExampleName URL>
+
+14. Add code to ../support/e2e.js at the end of the file:
+    Cypress.on('uncaught:exception', () => false);    
+
+15. Add code to ../cypress.config.js:
+        baseUrl: 'https://practice.cydeo.com/',
+
+16. Add code to the ./cypress/e2e/testStructure.js: 
+    it('Opening a web application', () => {
+        cy.visit('https://practice.cydeo.com/');
+    });
+
+    it('Test 2', () => {
+        expect(false).to.equal(false);
+    })
+    
+    it('Test 3', () => {
+        expect(false).not.to.equal(true);
+    })
+    
+    it('Test 4', () => {
+        expect(5).to.equal(5);
+    })
+    
+    it('Test 5', () => {
+        expect(true).to.equal('5'==5);
+    })
+
+17. if you want to skip test - add skip
+    it.skip('Opening a web application', () => {
+        cy.visit('https://practice.cydeo.com/');
+    });
+    
+    or by adding x in the beginning
+    
+    xit('Test 2', () => {
+        expect(false).to.equal(false);
+    })
+
+18. if you want to have only
+    it.only('Test 5', () => {
+        expect(true).to.equal('5'==5);
+    })    
+
+19. push the code to the repository:
+    git add .
+    git commit -m "add: tests in the testStructure.js"
+    git push
+
+20.
