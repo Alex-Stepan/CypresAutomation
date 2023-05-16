@@ -20,6 +20,7 @@ describe('Find or Get Elements by using Different Locators', () => {
         //for multiple locators:
         //using each loop:
 
+        //locate by tag name
         //cy.get("input").each((item, index, list))   //[creates object].[object parameters: item, index, list]
         cy.get("input").each((item, index, list) => {
             //assert the length is 2
@@ -39,15 +40,24 @@ describe('Find or Get Elements by using Different Locators', () => {
 
         //locate by text
         cy.get('button').should('contain', 'Login').click(); //identify the attribute, then assert if it contain this text
+    });
 
+    it('check Finding Elemnts by traveling through DOM', () => {
+        //travel to find the login button: locate username box > go to parent form > find button
+        cy.get("input[name='username']").parents('form').find('button').should('contain', 'Login').click();
+    });
 
-
-
-
-
-
-
-
+    it.only('Check Different Type of Assertions', () => {
+        //Should Assertion
+        cy.get('#wooden_spoon')
+        .should('contain', 'Login')
+        .and('have.class', 'btn btn-primary');
+        
+        //expect Assertion (creates object, then is doing actions to the object)
+        cy.get('#wooden_spoon').then((buttonElement) =>{
+            expect(buttonElement).to.have.text('Login');
+            expect(buttonElement).to.have.class('btn btn-primary');
+        })
     });
 
 });
