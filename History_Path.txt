@@ -153,4 +153,8 @@
     add user.email:
         git config --global user.email "your_useremail@example.com"
 
-23.        
+23. Run Cypress only a specific file:
+    npx cypress run --spec .\cypress\e2e\locators.cy.js
+
+24. Disable making test video:
+    add to cypress.config.js:   [video: false,]
