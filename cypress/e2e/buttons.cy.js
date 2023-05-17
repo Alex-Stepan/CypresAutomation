@@ -4,7 +4,7 @@ describe('Context: test structure', () => {
     
     beforeEach(() => {
         cy.clearCookies();
-        cy.visit('/multiple_buttons/');
+        cy.visit('/multiple_buttons');
         //runs before each test
     });
     
