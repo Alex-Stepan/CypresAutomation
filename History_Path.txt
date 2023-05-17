@@ -158,3 +158,9 @@
 
 24. Disable making test video:
     add to cypress.config.js:   [video: false,]
+
+25. Code quality to the project:
+    npm install eslint --save-dev
+
+26. Change defaul Timeout settings:
+    add [defaultCommandTimeout: 5000,]    to cypress.config.js file
