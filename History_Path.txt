@@ -222,4 +222,19 @@
         "singleQuote": true
     }
 
-33.
+33. Make changes into package.json
+    "scripts": {
+        "cypress-cli": "cypress open",
+        "cypress-headed": "cypress run -b chrome",
+        "cypress-headless": "cypress run --headless -b chrome",
+        "eslint": "eslint cypress",
+        "eslint-fix": "eslint cypress --fix"
+    },
+
+34. From now you can run cypres with NEW commands:
+    npm run cypress-cli     
+    npm run cypress-headed     
+    npm run cypress-headless     
+    npm run cypress-eslint
+    npm run eslint-fix     
+
