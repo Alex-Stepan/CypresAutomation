@@ -235,6 +235,6 @@
     npm run cypress-cli     
     npm run cypress-headed     
     npm run cypress-headless     
-    npm run cypress-eslint
+    npm run eslint
     npm run eslint-fix     
 
