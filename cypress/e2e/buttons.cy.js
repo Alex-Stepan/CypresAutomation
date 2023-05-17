@@ -39,7 +39,8 @@ describe('Context: test structure', () => {
 
             }
         })
-
+            // npx sypress run --headless -b chrome
+            // this is the command to run all test headlees in chrome
 
     });
 

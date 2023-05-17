@@ -164,3 +164,6 @@
 
 26. Change defaul Timeout settings:
     add [defaultCommandTimeout: 5000,]    to cypress.config.js file
+
+27. Command to run all test headlees in chrome
+    npx sypress run --headless -b chrome
