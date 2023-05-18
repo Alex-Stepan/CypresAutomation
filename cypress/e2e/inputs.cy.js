@@ -38,6 +38,24 @@ describe('Inpunt Form Tset', () => {
   });
 
   it('Check different Radio Buttons actions', () => {
+    cy.get('.radio').find('[type=radio]').then((radio => {
+        //1. GET all radio buttons, then select FIRST and verify if it checked
+        //needed wrap to convert jQuery HTML into HTML
+        cy.wrap(radio).first().check().should('be.checked');
+        /*
+        cypress works in a chainable function structure
+        radio: is jQuery element, cy.wrap: turns it into cypress object so we can use cypress functions to it
+        check(): check it out
+        chould(): verification based on parameters
+        */
+
+        //2. GET all radio buttons, then select SECOND and verify if confirmtion checkmark is visible
+        cy.wrap(radio).eq(1).check().should('be.checked');
+        cy.get("[data-bv-icon-for=''gender']").should('be.visible');    //common function used in test
+
+        // Check to have THIRD radio button to nu Unchecked
+        cy.wrap(radio).eq(2).should('not.be.checked');
+    }))
 
   })
 
