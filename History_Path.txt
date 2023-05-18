@@ -232,9 +232,9 @@
     },
 
 34. From now you can run cypres with NEW commands:
-    npm run cypress-cli     
+    npm run cypress-cli
     npm run cypress-headed     
     npm run cypress-headless     
     npm run eslint
-    npm run eslint-fix     
+    npm run eslint-fix
 
