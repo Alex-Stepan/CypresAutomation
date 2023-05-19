@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+const { check } = require("prettier");
+
 describe('Inpunt Form Tset', () => {
   beforeEach('Navigate to registration page', () => {
     cy.clearCookies();
@@ -57,6 +59,16 @@ describe('Inpunt Form Tset', () => {
         cy.wrap(radio).eq(2).should('not.be.checked');
     }))
 
+  });
+
+  it('Check different CheckBox actions', () =>{
+    //get all checkboxes, then select JAVA, then verify if JAVA selected
+    cy.get('[type="checkbox"]').then((checkbox) => {
+        cy.wrap(checkbox).eq(1).check().should('be.checked');
+        
+        //uncheck JAVA
+        cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
+    })
   })
 
 
