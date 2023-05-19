@@ -53,7 +53,7 @@ describe('Inpunt Form Tset', () => {
 
         //2. GET all radio buttons, then select SECOND and verify if confirmtion checkmark is visible
         cy.wrap(radio).eq(1).check().should('be.checked');
-        cy.get("[data-bv-icon-for=''gender']").should('be.visible');    //common function used in test
+        cy.get('[data-bv-icon-for="gender"]').should('be.visible');    //common function used in test
 
         // Check to have THIRD radio button to nu Unchecked
         cy.wrap(radio).eq(2).should('not.be.checked');

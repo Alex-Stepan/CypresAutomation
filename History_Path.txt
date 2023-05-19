@@ -238,3 +238,8 @@
     npm run eslint
     npm run eslint-fix
 
+35. Change viewPort, add to cypress.config.js:
+    viewportHeight: 800,
+    viewportWidth: 1200,  //vew configurations
+
+
