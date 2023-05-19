@@ -56,7 +56,7 @@ describe('Inpunt Form Tset', () => {
         cy.get('[data-bv-icon-for="gender"]').should('be.visible');    //common function used in test
 
         // Check to have THIRD radio button to nu Unchecked
-        cy.wrap(radio).eq(2).should('not.be.checked');
+        cy.wrap(radio).eq(2).should('not.be.checked');        
     }))
 
   });
@@ -68,6 +68,9 @@ describe('Inpunt Form Tset', () => {
         
         //uncheck JAVA
         cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
+        
+        //verify third checkbox to have a value "JavaScript", then check it and verify
+        cy.wrap(checkbox).eq(2).should('have.value', 'javascript').check().should('be.checked');
     })
   })
 
