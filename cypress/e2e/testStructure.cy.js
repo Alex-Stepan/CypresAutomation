@@ -5,8 +5,8 @@ describe('Context: test structure', () => {
     // runs before all tests
   });
   beforeEach(() => {
-    cy.clearCookies();
     // runs before each test
+    cy.clearCookies();
   });
   after(() => {
     // runs after test

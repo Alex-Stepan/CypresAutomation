@@ -256,4 +256,9 @@
         "9" : "Tourism Office"
     }
 
+37. add dependency for Cypress File Upload, by running command:
+    npm install -dev cypress-file-upload
+
+38. add a folowing line to ../support/commands.js:
+    import 'cypress-file-upload';
 
