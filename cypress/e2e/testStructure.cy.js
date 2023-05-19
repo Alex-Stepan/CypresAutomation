@@ -15,6 +15,8 @@ describe('Context: test structure', () => {
     // runs after each method
   });
 
+  it('', () => {});
+
   it('Opening a web application', () => {
     cy.visit('/registration_form');
   });

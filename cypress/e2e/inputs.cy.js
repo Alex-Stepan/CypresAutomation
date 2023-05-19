@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const { check } = require("prettier");
+const { check } = require('prettier');
 
 describe('Inpunt Form Tset', () => {
   beforeEach('Navigate to registration page', () => {
@@ -40,9 +40,11 @@ describe('Inpunt Form Tset', () => {
   });
 
   it('Check different Radio Buttons actions', () => {
-    cy.get('.radio').find('[type=radio]').then((radio => {
-        //1. GET all radio buttons, then select FIRST and verify if it checked
-        //needed wrap to convert jQuery HTML into HTML
+    cy.get('.radio')
+      .find('[type=radio]')
+      .then((radio) => {
+        // 1. GET all radio buttons, then select FIRST and verify if it checked
+        // needed wrap to convert jQuery HTML into HTML
         cy.wrap(radio).first().check().should('be.checked');
         /*
         cypress works in a chainable function structure
@@ -51,29 +53,59 @@ describe('Inpunt Form Tset', () => {
         chould(): verification based on parameters
         */
 
-        //2. GET all radio buttons, then select SECOND and verify if confirmtion checkmark is visible
+        // 2. GET all radio buttons, then select SECOND and verify if confirmtion checkmark is visible
         cy.wrap(radio).eq(1).check().should('be.checked');
-        cy.get('[data-bv-icon-for="gender"]').should('be.visible');    //common function used in test
+        cy.get('[data-bv-icon-for="gender"]').should('be.visible'); // common function used in test
 
         // Check to have THIRD radio button to nu Unchecked
-        cy.wrap(radio).eq(2).should('not.be.checked');        
-    }))
-
+        cy.wrap(radio).eq(2).should('not.be.checked');
+      });
   });
 
-  it('Check different CheckBox actions', () =>{
-    //get all checkboxes, then select JAVA, then verify if JAVA selected
+  it('Check different CheckBox actions', () => {
+    // get all checkboxes, then select JAVA, then verify if JAVA selected
     cy.get('[type="checkbox"]').then((checkbox) => {
-        cy.wrap(checkbox).eq(1).check().should('be.checked');
-        
-        //uncheck JAVA
-        cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
-        
-        //verify third checkbox to have a value "JavaScript", then check it and verify
-        cy.wrap(checkbox).eq(2).should('have.value', 'javascript').check().should('be.checked');
-    })
-  })
+      cy.wrap(checkbox).eq(1).check().should('be.checked');
+
+      // uncheck JAVA
+      cy.wrap(checkbox).eq(1).uncheck().should('not.be.checked');
+
+      // verify third checkbox to have a value "JavaScript", then check it and verify
+      cy.wrap(checkbox).eq(2).should('have.value', 'javascript').check().should('be.checked');
+    });
+  });
+
+  it('Check selection of a single choice from dropdown', () => {
+    // select one element "Developer" from dropdown "Job title"
+    cy.get('select[name="job_title"]').select('Developer'); // select by value
+
+    // assert that dropdown has selected the correct text after selecting
+    cy.get('select[name="job_title"]').contains('Developer');
+  });
+
+  it('Check selection of all choices from dropdown', () => {
+    //we will provide our test data through [/fixtures folder and as departments.json object], then use that data to verify select values
+    cy.fixture('departments').then((departments) => {
+
+      //get all options in the menu, iterate through options one by one
+      cy.get('select[name="department"] > option').each((option, index) =>{
+      
+        //get each option text
+        const optionText = option.text(); //to get text from each option and print it out
+
+        //to print each data:
+        //cy.log(optionText + ' from option Text');
+        //cy.log(index);
+        //cy.log(departments[index] + ' from index option value');
 
 
+        cy.get('select[name="department"] > option')    //locate total menu
+        .select(optionText)                             //select each
+        .should('have.value',option.val)                //check if it have a option value
+        .contains(departments[index]);                  //check if it contains the value from ../fixtures/departments.json
 
+      });
+
+    });
+  });
 });
