@@ -63,11 +63,13 @@
 
 11. Create a Git repository on Github with the name: ExampleName
 
+
 12. Enable Version Control:
     git init
     git add .
     git commit -m "add: first commit"
     git branch -M main
+    git remote -v
     git remote add origin <ExampleName URL>
     git push -u origin main
 
@@ -231,7 +233,7 @@
         "eslint-fix": "eslint cypress --fix"
     },
 
-34. From now you can run cypres with NEW commands:
+34. From now you can run cypress with NEW commands:
     npm run cypress-cli
     npm run cypress-headed     
     npm run cypress-headless     
@@ -261,4 +263,7 @@
 
 38. add a folowing line to ../support/commands.js:
     import 'cypress-file-upload';
+
+39. runn the test without openning it in the browser:
+    npx cypress run --spec .\cypress\e2e\webTables.cy.js    
 
