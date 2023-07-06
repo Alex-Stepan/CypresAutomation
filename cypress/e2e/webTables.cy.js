@@ -70,4 +70,4 @@ describe('Cypress WebTable Test', { baseUrl: 'https://demoqa.com' }, () => {
         cy.get('.rt-noData').should('be.visible').should('contain', 'No rows found');
       }); // end of juery element '.rt-tbody'
   }); // end of it()
-});
+});  //end of describe
