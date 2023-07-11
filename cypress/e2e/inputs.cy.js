@@ -84,28 +84,23 @@ describe('Inpunt Form Tset', () => {
   });
 
   it('Check selection of all choices from dropdown', () => {
-    //we will provide our test data through [/fixtures folder and as departments.json object], then use that data to verify select values
+    // we will provide our test data through [/fixtures folder and as departments.json object], then use that data to verify select values
     cy.fixture('departments').then((departments) => {
+      // get all options in the menu, iterate through options one by one
+      cy.get('select[name="department"] > option').each((option, index) => {
+        // get each option text
+        const optionText = option.text(); // to get text from each option and print it out
 
-      //get all options in the menu, iterate through options one by one
-      cy.get('select[name="department"] > option').each((option, index) =>{
-      
-        //get each option text
-        const optionText = option.text(); //to get text from each option and print it out
+        // to print each data:
+        // cy.log(optionText + ' from option Text');
+        // cy.log(index);
+        // cy.log(departments[index] + ' from index option value');
 
-        //to print each data:
-        //cy.log(optionText + ' from option Text');
-        //cy.log(index);
-        //cy.log(departments[index] + ' from index option value');
-
-
-        cy.get('select[name="department"] > option')    //locate total menu
-        .select(optionText)                             //select each
-        .should('have.value',option.val)                //check if it have a option value
-        .contains(departments[index]);                  //check if it contains the value from ../fixtures/departments.json
-
+        cy.get('select[name="department"]') // locate total menu
+          .select(optionText) // select each
+          .should('have.value', option.val) // check if it have a option value
+          .contains(departments[index]); // check if it contains the value from ../fixtures/departments.json
       });
-
     });
   });
 });
